@@ -12,6 +12,7 @@ namespace reg
 		}
 		const char* procName = luaL_checkstring(L, 1);
 		const char* fileName = luaL_checkstring(L, 2);
+
 		process->updateList();
 		if (process->attach(procName))
 		{

@@ -10,13 +10,13 @@ int main()
 	auto func = GetProcAddress(hmod, "runFile");
 	if (!func) return 0;
 	auto func2 = GetProcAddress(hmod, "runScript");
-	auto runFile = reinterpret_cast<bool(*)(const char* thisFile)>(func);
-	auto runScript = reinterpret_cast<bool(*)(const char* thisScript)>(func2);
+	auto runFile = reinterpret_cast<bool(*)(const char* thisFile, bool openconsole)>(func);
+	auto runScript = reinterpret_cast<bool(*)(const char* thisScript, bool openconsole)>(func2);
 
 	if (runFile)
-		runFile("main.lua");
+		runFile("main.lua", false);
 
-	runScript(" print(\"runScript teste\") ");
+	runScript(" print(\"runScript teste\") ", false);
 	std::cout << "Hello World!\n";
 
 	return getchar();

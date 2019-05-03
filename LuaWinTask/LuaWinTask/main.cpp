@@ -4,14 +4,28 @@
 #include "cRunLua.h"
 #define DllExport   extern "C" __declspec( dllexport )   
 
-auto* runLua = new cRunLua();
-DllExport bool runFile(const char* thisFile)
+
+void OpenConsole(std::string Title)
 {
+	FILE* stream;
+	AllocConsole();
+	freopen_s(&stream, "CONIN$", "r", stdin);
+	freopen_s(&stream, "CONOUT$", "w", stdout);
+	freopen_s(&stream, "CONOUT$", "w", stderr);
+	SetConsoleTitleA(Title.c_str());
+}
+auto* runLua = new cRunLua();
+DllExport bool runFile(const char* thisFile, bool openconsole)
+{
+	if (openconsole)
+		OpenConsole("");
 	runLua->execute_file(thisFile);
 	return true;
 }
-DllExport bool runScript(const char* thisScript)
+DllExport bool runScript(const char* thisScript, bool openconsole)
 {
+	if (openconsole)
+		OpenConsole("");
 	runLua->execute_script(thisScript);
 	return true;
 }

@@ -15,4 +15,5 @@ namespace utils
 			str = str.substr(0, last);
 		return str;
 	}
+
 }
