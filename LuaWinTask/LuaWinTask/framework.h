@@ -5,3 +5,5 @@
 #include <iostream>
 #include <string>
 #include <fstream>
+#include <vector>
+#include <TlHelp32.h>

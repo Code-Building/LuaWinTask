@@ -102,6 +102,18 @@
     <ClInclude Include="Lua5.3.5\lzio.h">
       <Filter>Lua5.3.5</Filter>
     </ClInclude>
+    <ClInclude Include="cProcess.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cInjects.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cRunLua.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="reg.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -211,6 +223,15 @@
     </ClCompile>
     <ClCompile Include="Lua5.3.5\lzio.c">
       <Filter>Lua5.3.5</Filter>
+    </ClCompile>
+    <ClCompile Include="cProcess.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cInjects.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cRunLua.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

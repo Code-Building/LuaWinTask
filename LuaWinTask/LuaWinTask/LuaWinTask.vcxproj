@@ -155,6 +155,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="cInjects.h" />
+    <ClInclude Include="cProcess.h" />
+    <ClInclude Include="cRunLua.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="Lua5.3.5\lapi.h" />
     <ClInclude Include="Lua5.3.5\lauxlib.h" />
@@ -182,9 +185,13 @@
     <ClInclude Include="Lua5.3.5\lundump.h" />
     <ClInclude Include="Lua5.3.5\lvm.h" />
     <ClInclude Include="Lua5.3.5\lzio.h" />
+    <ClInclude Include="reg.hpp" />
     <ClInclude Include="Utils.hpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="cInjects.cpp" />
+    <ClCompile Include="cProcess.cpp" />
+    <ClCompile Include="cRunLua.cpp" />
     <ClCompile Include="Lua5.3.5\lapi.c" />
     <ClCompile Include="Lua5.3.5\lauxlib.c" />
     <ClCompile Include="Lua5.3.5\lbaselib.c" />
