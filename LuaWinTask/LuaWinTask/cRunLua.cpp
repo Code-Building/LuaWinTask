@@ -48,6 +48,8 @@ void cRunLua::registers()
 	lua_register(L, "byCalc",		reg::byCalc); //example
 	lua_register(L, "msgbox",		reg::msgbox); //example
 	lua_register(L, "inject_def",	reg::inject_def);
+	lua_register(L, "rpm", reg::rpm);
+	lua_register(L, "wpm", reg::wpm);
 }
 
 cRunLua::cRunLua()

@@ -16,8 +16,9 @@ int main()
 	if (runFile)
 		runFile("main.lua", false);
 
-	runScript(" print(\"runScript teste\") ", false);
+	runScript(" print(\"runScript teste\") ", false); // Ta dando erro.
 	std::cout << "Hello World!\n";
+	//runScript("rpm(\"citra-qt.exe\",0x1ABDDEBC) ", false);
 
 	return getchar();
 }

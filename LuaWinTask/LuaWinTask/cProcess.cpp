@@ -66,3 +66,4 @@ void cProcess::detach()
 {
 	CloseHandle(hProcess);
 }
+

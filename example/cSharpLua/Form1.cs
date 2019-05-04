@@ -45,5 +45,21 @@ namespace cSharpLua
         {
             runScript("print(\"hello from csharp\")", true);
         }
+
+        private void Button4_Click(object sender, EventArgs e)
+        {
+            if ((textBox1.Text != "")&& (textBox3.Text != ""))
+            {
+                runScript("print(rpm(\"" + textBox1.Text + "\", " + textBox3.Text + "))", true);
+            }
+        }
+
+        private void Button5_Click(object sender, EventArgs e)
+        {
+            if ((textBox1.Text != "") && (textBox2.Text != "") && (textBox3.Text != ""))
+            {
+                runScript("print(wpm(\"" + textBox1.Text + "\", " + textBox3.Text + ","+textBox2.Text+"))", true);
+            }
+        }
     }
 }
