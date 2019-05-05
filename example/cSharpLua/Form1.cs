@@ -61,5 +61,10 @@ namespace cSharpLua
                 runScript("print(wpm(\"" + textBox1.Text + "\", " + textBox3.Text + ","+textBox2.Text+"))", true);
             }
         }
+
+        private void Button6_Click(object sender, EventArgs e)
+        {
+            runScript("print(rpm(\"dontstarve_steam.exe\",0x00F1D2EC,0x54,0x40,0x50,0x398))", true);
+        }
     }
 }

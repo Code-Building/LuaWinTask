@@ -1,6 +1,7 @@
 cProcess* process = new cProcess();
 namespace reg
 {
+
 	static int inject_def(lua_State* L)
 	{
 		auto ret = false;
@@ -25,28 +26,32 @@ namespace reg
 		return 1;
 	}
 
-	static int rpm(lua_State* L){
+	static int rpm(lua_State* L) {
 
-		uint32_t pCout = lua_gettop(L);
-		if (pCout >= 2){
-
-			if (lua_isnumber(L, 1)) 
-				process->attach(luaL_checkinteger(L, 1));
+		int pcount = lua_gettop(L);
+		if (pcount >= 2) {
+			int pid = 0;
+			if (lua_isnumber(L, 1))
+				pid = (int)luaL_checkinteger(L, 1);
 			else
-				process->attach(luaL_checkstring(L, 1));
-		
+				pid = process->attach(luaL_checkstring(L, 1));
+
 			DWORD addr = (DWORD)luaL_checkinteger(L, 2);
-			if (pCout > 2) {
-
-			}
+			std::vector<DWORD>offset;
 			int valor = 0;
-
-			lua_pushboolean(L, ReadProcessMemory(process->getHandle(), (LPCVOID)addr, &valor, sizeof(valor), nullptr));
+			if (pcount > 2) {
+				for (int i = 1; i <= pcount - 2; ++i) {
+					offset.push_back((DWORD)luaL_checkinteger(L, (i + 2)));
+				}
+			}
+			uintptr_t test = process->FindDmaAddy(process->getHandle(), offset, addr);
+			lua_pushboolean(L, ReadProcessMemory(process->getHandle(), (LPVOID)test, &valor, sizeof(valor), nullptr));
 			lua_pushinteger(L, valor);
 			return 2;
 		}
 		return 0;
 	}
+
 
 	static int wpm(lua_State* L) {
 
@@ -59,13 +64,16 @@ namespace reg
 				process->attach(luaL_checkstring(L, 1));
 
 			DWORD addr = (DWORD)luaL_checkinteger(L, 2);
-			if (pCout > 2) {
-
+			std::vector<DWORD>offset;
+			if (pCout > 3) {
+				for (int i = 1; i <= pCout - 3; ++i) {
+					offset.push_back((DWORD)luaL_checkinteger(L, (i + 2)));
+				}
 			}
 			int valor = luaL_checkinteger(L,3);
 
 			lua_pushboolean(L, WriteProcessMemory(process->getHandle(),(LPVOID)addr, &valor, sizeof(valor), nullptr));
-			//lua_pushinteger(L, valor);
+			lua_pushinteger(L, valor);
 			return 1;
 		}
 		return 0;

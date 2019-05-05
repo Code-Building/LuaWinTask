@@ -49,6 +49,27 @@ std::uint32_t cProcess::findA(const char* proc)
 	return find(GetWC(proc));
 }
 
+uintptr_t cProcess::FindDmaAddy(HANDLE phandle, std::vector<DWORD> Offsets, DWORD base)
+{
+	uintptr_t pointer = base;
+	uintptr_t pTemp;
+	uintptr_t pointerAddy = 0x0;
+	for (UINT16 i = 0; i < Offsets.size(); ++i)
+	{
+		if (i == 0)
+		{
+			ReadProcessMemory(phandle, (LPCVOID)pointer, &pTemp, 4, NULL);
+		}
+		pointerAddy = pTemp + Offsets[i];
+		ReadProcessMemory(phandle, (LPCVOID)pointerAddy, &pTemp, 4, NULL);
+	}
+
+	return pointerAddy;
+}
+
+
+
+
 bool cProcess::attach(uint32_t id)
 {
 	hProcess = OpenProcess(PROCESS_ALL_ACCESS, false, id);
