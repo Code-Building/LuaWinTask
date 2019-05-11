@@ -29,5 +29,10 @@ DllExport bool runScript(const char* thisScript, bool openconsole)
 	runLua->execute_script(thisScript);
 	return true;
 }
-
+DllExport int rsti(const char* thisScript, const char* var, bool openconsole)
+{
+	if (openconsole)
+		OpenConsole("");
+	return runLua->e_r_script_integer(thisScript, var);
+}
 

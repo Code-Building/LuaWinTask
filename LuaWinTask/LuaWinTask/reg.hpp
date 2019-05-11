@@ -43,9 +43,10 @@ namespace reg
 				for (int i = 1; i <= pcount - 2; ++i) {
 					offset.push_back((DWORD)luaL_checkinteger(L, (i + 2)));
 				}
+				addr = process->FindDmaAddy(process->getHandle(), offset, addr);
 			}
-			uintptr_t test = process->FindDmaAddy(process->getHandle(), offset, addr);
-			lua_pushboolean(L, ReadProcessMemory(process->getHandle(), (LPVOID)test, &valor, sizeof(valor), nullptr));
+			
+			lua_pushboolean(L, ReadProcessMemory(process->getHandle(), (LPVOID)addr, &valor, sizeof(valor), nullptr));
 			lua_pushinteger(L, valor);
 			return 2;
 		}

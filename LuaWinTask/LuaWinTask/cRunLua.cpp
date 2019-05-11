@@ -35,6 +35,15 @@ bool cRunLua::execute_script(const char* thisScript)
 	luaL_dostring(L, thisScript);
 }
 
+int cRunLua::e_r_script_integer(const char* thisScript, const char* var)
+{
+	if (!thisScript)
+		return false;
+	luaL_dostring(L, thisScript);
+	lua_getglobal(L, var);
+	return lua_tonumber(L, -1);
+}
+
 void cRunLua::run_commands()
 {
 	printf("run_commands\n");

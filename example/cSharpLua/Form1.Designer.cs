@@ -37,11 +37,14 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
+            this.request_label = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
+            this.http_textbox = new System.Windows.Forms.TextBox();
+            this.send_Request_bnt = new System.Windows.Forms.Button();
+            this.http_request2 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // button1
@@ -120,14 +123,14 @@
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.Button4_Click);
             // 
-            // label3
+            // request_label
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(203, 168);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(33, 13);
-            this.label3.TabIndex = 8;
-            this.label3.Text = "value";
+            this.request_label.AutoSize = true;
+            this.request_label.Location = new System.Drawing.Point(218, 168);
+            this.request_label.Name = "request_label";
+            this.request_label.Size = new System.Drawing.Size(33, 13);
+            this.request_label.TabIndex = 8;
+            this.request_label.Text = "value";
             // 
             // textBox3
             // 
@@ -157,7 +160,7 @@
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(10, 334);
+            this.button6.Location = new System.Drawing.Point(67, 220);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(121, 23);
             this.button6.TabIndex = 12;
@@ -165,16 +168,43 @@
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.Button6_Click);
             // 
+            // http_textbox
+            // 
+            this.http_textbox.Location = new System.Drawing.Point(12, 288);
+            this.http_textbox.Name = "http_textbox";
+            this.http_textbox.Size = new System.Drawing.Size(84, 20);
+            this.http_textbox.TabIndex = 13;
+            // 
+            // send_Request_bnt
+            // 
+            this.send_Request_bnt.Location = new System.Drawing.Point(38, 314);
+            this.send_Request_bnt.Name = "send_Request_bnt";
+            this.send_Request_bnt.Size = new System.Drawing.Size(121, 23);
+            this.send_Request_bnt.TabIndex = 14;
+            this.send_Request_bnt.Text = "Enviar";
+            this.send_Request_bnt.UseVisualStyleBackColor = true;
+            this.send_Request_bnt.Click += new System.EventHandler(this.Send_Request_bnt_Click);
+            // 
+            // http_request2
+            // 
+            this.http_request2.Location = new System.Drawing.Point(104, 288);
+            this.http_request2.Name = "http_request2";
+            this.http_request2.Size = new System.Drawing.Size(84, 20);
+            this.http_request2.TabIndex = 15;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(278, 369);
+            this.Controls.Add(this.http_request2);
+            this.Controls.Add(this.send_Request_bnt);
+            this.Controls.Add(this.http_textbox);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.request_label);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
@@ -201,11 +231,14 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label request_label;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.TextBox http_textbox;
+        private System.Windows.Forms.Button send_Request_bnt;
+        private System.Windows.Forms.TextBox http_request2;
     }
 }
 

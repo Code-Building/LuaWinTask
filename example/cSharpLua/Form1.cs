@@ -18,6 +18,9 @@ namespace cSharpLua
         static extern bool runFile(string filename, bool openconsole);
         [DllImport("LuaWinTask", CallingConvention = CallingConvention.Cdecl)]
         static extern bool runScript(string filename, bool openconsole);
+
+        [DllImport("LuaWinTask", CallingConvention = CallingConvention.Cdecl)]
+        static extern int rsti(string filename,string var, bool openconsole);
         public Form1()
         {
             InitializeComponent();
@@ -48,9 +51,16 @@ namespace cSharpLua
 
         private void Button4_Click(object sender, EventArgs e)
         {
-            if ((textBox1.Text != "")&& (textBox3.Text != ""))
+            //if ((textBox1.Text != "")&& (textBox3.Text != ""))
+            //{
+            //    runScript("print(rpm(\"" + textBox1.Text + "\", " + textBox3.Text + "))", true);
+            //}
+            if ((textBox1.Text != "") && (textBox3.Text != ""))
             {
-                runScript("print(rpm(\"" + textBox1.Text + "\", " + textBox3.Text + "))", true);
+                //variaveis a & b, sendo a bool retorno da funcao e b o valor da leitura.
+                string myscritp = "a,b =rpm('" + textBox1.Text + "', " + textBox3.Text + ")";
+                 int b = rsti(myscritp,"b", false);
+                request_label.Text = b.ToString();
             }
         }
 
@@ -65,6 +75,11 @@ namespace cSharpLua
         private void Button6_Click(object sender, EventArgs e)
         {
             runScript("print(rpm(\"dontstarve_steam.exe\",0x00F1D2EC,0x54,0x40,0x50,0x398))", true);
+        }
+
+        private void Send_Request_bnt_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
